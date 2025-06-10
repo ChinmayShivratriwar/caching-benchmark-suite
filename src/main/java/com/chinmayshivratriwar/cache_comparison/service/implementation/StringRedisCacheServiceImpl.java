@@ -5,9 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("stringRedis")
 @RequiredArgsConstructor
-public class RedisCacheServiceImpl implements RedisCacheService {
+public class StringRedisCacheServiceImpl implements RedisCacheService<String, String> {
 
     private final StringRedisTemplate redisTemplate;
 

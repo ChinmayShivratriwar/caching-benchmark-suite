@@ -26,4 +26,13 @@ public class ComparisonController {
         Map<String, String> result = cacheBenchmarkService.getBenchmarkResponses(testSize);
         return ResponseEntity.ok(result);
     }
+
+    @PostMapping("/rc-blob-flow")
+    public ResponseEntity<Map<String, String>> getBlobBenchmarkingData(
+            @RequestParam(defaultValue = "5000") int testSize,
+            @RequestParam(defaultValue = "100") int blobSizeInKb
+    ) {
+        Map<String, String> result = cacheBenchmarkService.getBenchmarkResponsesForObjects(testSize, blobSizeInKb);
+        return ResponseEntity.ok(result);
+    }
 }

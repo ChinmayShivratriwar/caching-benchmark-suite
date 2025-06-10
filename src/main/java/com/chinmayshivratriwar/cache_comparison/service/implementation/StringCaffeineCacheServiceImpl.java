@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
-@Service
-public class CaffeineCacheServiceImpl implements CaffeineCacheService {
+@Service("stringCaffeine")
+public class StringCaffeineCacheServiceImpl implements CaffeineCacheService<String, String> {
     private final Cache<String, String> cache = Caffeine.newBuilder()
             .expireAfterWrite(10, TimeUnit.MINUTES)
             .maximumSize(200_000)
