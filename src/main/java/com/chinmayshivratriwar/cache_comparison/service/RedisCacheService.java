@@ -1,9 +1,11 @@
 package com.chinmayshivratriwar.cache_comparison.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface RedisCacheService {
-    void put(String key, String value);
-    String get(String key);
+public interface RedisCacheService<K, V> {
+    void put(K key, V value);
+
+    V get(K key) throws JsonProcessingException;
 }
